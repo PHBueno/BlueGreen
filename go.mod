@@ -1,4 +1,4 @@
-module BlueGreen
+module github.com/PHBueno/BlueGreen
 
 go 1.26.4
 
