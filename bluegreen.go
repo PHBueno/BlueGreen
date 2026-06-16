@@ -17,12 +17,12 @@ func CreateConfig() *Config {
 	return &Config{}
 }
 
-type Bluegreen struct {
+type Teste struct {
 	next http.Handler
 	name string
 }
 
-func (bg *Bluegreen) ServeHTTP(rw http.ResponseWriter, req *http.Request) {
+func (bg *Teste) ServeHTTP(rw http.ResponseWriter, req *http.Request) {
 	req.Header.Set("X-Slot", "1")
 
 	bg.next.ServeHTTP(rw, req)
@@ -32,7 +32,7 @@ func New(ctx context.Context, next http.Handler, config *Config, name string) (h
 	if config.RedisAddress == "" {
 		return nil, fmt.Errorf("Redis Address is not set!")
 	}
-	return &Bluegreen{
+	return &Teste{
 		next: next,
 		name: name,
 	}, nil
